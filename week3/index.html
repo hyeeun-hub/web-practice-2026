@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강혜은 - 문의하기</title>
+    <meta name="description" content="제주대학교 컴퓨터공학과 강혜은의 소개 및 문의하기 페이지입니다.">
+
+    <meta property="og:title" content="강혜은 - 문의하기">
+    <meta property="og:description" content="제주대학교 컴퓨터공학과 강혜은의 소개 및 문의하기 페이지입니다.">
+    <meta property="og:url" content="https://hyeeun.github.io/web-practice-2026/week3/">
+</head>
+<body>
+    <header>
+        <img src="images/jeju-university-logo.png" alt="제주대학교 로고" width="60" height="60">
+        <span>강혜은</span>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>안녕하세요, 강혜은입니다</h1>
+            <p>현재 제주대학교 컴퓨터공학과에 재학 중이며, Python, JavaScript, React를 배우고 있습니다.</p>
+        </section>
+
+        <section id="contact">
+            <h2>문의하기</h2>
+            <form>
+                <div>
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                </div>
+
+                <div>
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                </div>
+
+                <div>
+                    <label for="inquiry-type">문의 유형</label>
+                    <select id="inquiry-type" name="inquiry-type">
+                        <option value="general">일반 문의</option>
+                        <option value="project">프로젝트 제안</option>
+                        <option value="bug">버그 신고</option>
+                        <option value="etc">기타</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="message">문의 내용</label>
+                    <textarea id="message" name="message" placeholder="문의 내용을 입력하세요" required></textarea>
+                </div>
+
+                <button type="submit">보내기</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 강혜은. All rights reserved.</p>
+        <p>Email: <a href="mailto:ipad93920@gmail.com">ipad93920@gmail.com</a></p>
+    </footer>
+</body>
+</html>
