@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나만의 프로필 카드 - Week 4</title>
+
+    <!-- 구글 웹 폰트 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Internal Style Sheet -->
+    <style>
+      /* ===== 기본 선택자 (태그 선택자) ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Noto Sans KR", sans-serif; /* 웹폰트 적용 */
+        line-height: 1.7; /* 텍스트 스타일링 ① */
+        color: #333333; /* 텍스트 스타일링 ② */
+        background-color: #eef2f7;
+        padding: 30px; /* 박스 모델: padding */
+      }
+
+      h1 {
+        font-family: "Jua", sans-serif; /* 웹폰트 적용 (제목용) */
+        font-size: 48px; /* 텍스트 스타일링 ③ */
+        letter-spacing: 3px; /* 텍스트 스타일링 ④ */
+        text-align: center; /* 텍스트 스타일링 ⑤ */
+      }
+
+      h2 {
+        font-weight: 700; /* 텍스트 스타일링 ⑥ */
+        text-decoration: underline; /* 텍스트 스타일링 ⑦ */
+      }
+
+      /* ===== 클래스 선택자 ① : 헤더 ===== */
+      .profile-header {
+        width: 100%; /* 박스 모델: width */
+        height: 160px; /* 박스 모델: height */
+        padding: 20px; /* 박스 모델: padding */
+        margin-bottom: 25px; /* 박스 모델: margin */
+        border: 3px solid #2d6cdf; /* 박스 모델: border */
+        border-radius: 12px;
+        background: linear-gradient(135deg, #2d6cdf, #6aa0ff);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* ===== 클래스 선택자 ② : 부제목 ===== */
+      .subtitle {
+        font-style: italic; /* 텍스트 스타일링 ⑧ */
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+
+      /* ===== 클래스 선택자 ③ : 카드(섹션) ===== */
+      .card {
+        width: 100%;
+        padding: 20px 25px; /* 박스 모델: padding */
+        margin-bottom: 20px; /* 박스 모델: margin */
+        border: 1px solid #d0d7e2; /* 박스 모델: border */
+        border-radius: 10px;
+        background-color: #ffffff;
+      }
+
+      /* ===== 클래스 선택자 ④ : 소개 문단 ===== */
+      .intro-text {
+        text-align: justify;
+        margin-top: 12px; /* 박스 모델: margin */
+      }
+
+      /* ===== 클래스 선택자 ⑤ : 태그 목록 ===== */
+      .tag-list {
+        list-style: none;
+        margin-top: 12px;
+      }
+
+      /* ===== 클래스 선택자 ⑥ : 표 ===== */
+      .info-table {
+        width: 100%;
+        margin-top: 12px;
+        border-collapse: collapse;
+      }
+
+      /* ===== 결합 선택자 ① : 자손 선택자 (card 안의 h2) ===== */
+      .card h2 {
+        color: #2d6cdf;
+        border-left: 5px solid #2d6cdf; /* 박스 모델: border */
+        padding-left: 10px; /* 박스 모델: padding */
+      }
+
+      /* ===== 결합 선택자 ② : 자손 선택자 (tag-list 안의 li) ===== */
+      .tag-list li {
+        height: auto;
+        padding: 12px; /* 박스 모델: padding */
+        margin-bottom: 10px; /* 박스 모델: margin */
+        border: 1px dashed #b5c3dc; /* 박스 모델: border */
+        border-radius: 8px;
+        background-color: #f7f9fc;
+      }
+
+      /* ===== 결합 선택자 ③ : 자손 선택자 (tag-list 안의 em) ===== */
+      .tag-list li em {
+        display: inline-block;
+        font-weight: 700;
+        font-style: normal;
+        color: #d6336c;
+        margin-bottom: 4px;
+      }
+
+      /* ===== 결합 선택자 ④ : 자식 선택자 (main 바로 아래 section) ===== */
+      main > section {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+
+      /* ===== 결합 선택자 ⑤ : 자손 선택자 (표 셀) ===== */
+      .info-table th,
+      .info-table td {
+        padding: 10px; /* 박스 모델: padding */
+        border: 1px solid #d0d7e2; /* 박스 모델: border */
+        text-align: left;
+      }
+
+      .info-table th {
+        background-color: #2d6cdf;
+        color: #ffffff;
+      }
+
+      footer {
+        width: 100%;
+        margin-top: 25px; /* 박스 모델: margin */
+        padding: 15px; /* 박스 모델: padding */
+        text-align: center;
+        color: #888888;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="profile-header">
+      <h1>HTML</h1>
+      <span class="subtitle">Hyper Text Markup Language</span>
+    </header>
+    <main>
+      <section class="card">
+        <h2>소개</h2>
+        <p class="intro-text">
+          HTML이란, Hyper Text Markup Language의 약자로서 웹 페이지를 만드는
+          언어입니다. 여기서 Hyper의 사전적 의미는 "최고의", "과도한" 이라는
+          뜻으로, "Hyper Text"는 기존의 일반적인 문서보다
+          <strong>"월등한 최고의 기능을 담고 있는 문서"</strong> 라고 보시면 될
+          것 같습니다.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>글꼴 태그</h2>
+        <ul class="tag-list">
+          <li>
+            <em>h1 ~ h6</em>
+            <p>
+              웹 페이지의 제목 또는 부제목을 표현할 때 사용하며, 숫자가 작을
+              수록 큰 제목을 표시하는 데 사용합니다.
+            </p>
+          </li>
+          <li>
+            <em>p</em>
+            <p>하나의 문단을 표시할 때 사용합니다.</p>
+          </li>
+          <li>
+            <em>em</em>
+            <p>텍스트를 이텔릭체로 강조할 때 사용합니다.</p>
+          </li>
+          <li>
+            <em>strong</em>
+            <p>텍스트를 진하게 강조할 때 사용합니다.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>시멘틱 태그</h2>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>요소명</th>
+              <th>설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>header</td>
+              <td>
+                페이지에 대한 정보를 담는 태그로, 페이지 상단에 위치합니다.
+              </td>
+            </tr>
+            <tr>
+              <td>main</td>
+              <td>
+                문서의 body 요소의 주 콘텐츠(main content)를 정의할 때
+                사용합니다.
+              </td>
+            </tr>
+            <tr>
+              <td>footer</td>
+              <td>
+                주로 저작권 정보나 서비스 제공자 정보등을 나타내며 사이트 하단에
+                위치합니다.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <small>Copyright &copy; 기초웹개발론</small>
+    </footer>
+  </body>
+</html>
